@@ -67,7 +67,8 @@ bool EnableFPSMax::Load( CreateInterfaceFn interfaceFactory, CreateInterfaceFn g
 		Warning("FPS Max Enabler: Failed to get Cvar interface.\n");
 		return false;
 	}
-	Msg("FPS Max Enabler: Found CVar interface %08x\n", pCvars);
+
+	DevMsg("FPS Max Enabler: Found CVar interface %08x\n", pCvars);
 
 	fps_max_cvar = pCvars->FindVar("fps_max");
 	if(fps_max_cvar == NULL)
@@ -75,7 +76,7 @@ bool EnableFPSMax::Load( CreateInterfaceFn interfaceFactory, CreateInterfaceFn g
 		Warning("FPS Max Enabler: Failed to find fps_max command");
 		return false;
 	}
-	Msg("FPS Max Enabler: Found fps_max cvar %08x\n", fps_max_cvar);
+	DevMsg("FPS Max Enabler: Found fps_max cvar %08x\n", fps_max_cvar);
 	
 	fps_max_cvar->RemoveFlags(FCVAR_DEVELOPMENTONLY);
 	return true;
